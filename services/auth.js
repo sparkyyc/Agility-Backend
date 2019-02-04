@@ -9,7 +9,8 @@ const authHelpers = require("./_helpers")
 init()
 
 const options = {
-  usernameField: "email"
+  usernameField: "email",
+  passReqToCallback: true
 }
 
 passport.use(
@@ -27,7 +28,6 @@ passport.use(
           if (!isValid) {
             return done(null, false)
           }
-          console.log("valid user", user)
           return done(null, user)
         })
       })
